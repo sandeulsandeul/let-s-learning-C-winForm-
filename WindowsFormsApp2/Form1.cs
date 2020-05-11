@@ -13,22 +13,39 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+        // membership Enum 타입
+        public enum MemberTyoe
+        {
+            VIP = 0,
+            Regular,
+            Associate,
+            DayPass
+        }
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-               Process.Start("https://www.naver.com/");
+            listBox1.Items.Add("VIP 회원");
+            listBox1.Items.Add("정회원");
+            listBox1.Items.Add("준회원");
+            listBox1.Items.Add("일일 회원");
+
+            // 정회원이 기본 선택
+            listBox1.SelectedIndex = 1;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e, MemberTyoe memberType, MemberTyoe membertype)
         {
-            label1.BackColor = (label1.BackColor == Color.Blue) ?
-                Color.Azure : Color.Blue;
+            // SelectedIndex 는 정수값을 반환하기 때문에
+            // MemberType 변환이 필요하다. 
+            memberType = (MemberTyoe)listBox1.SelectedIndex;
         }
+        private MemberTyoe  memberType;
     }
 }
+
 

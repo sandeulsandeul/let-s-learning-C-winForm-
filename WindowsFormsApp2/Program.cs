@@ -16,6 +16,10 @@ namespace WindowsFormsApp2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            /* Form1 객체를 새로 생성한 뒤 
+               Application.Run()을 통해서 창에 보여준다.
+             */
             Application.Run(new Form1());
         }
     }
